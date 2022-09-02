@@ -6,24 +6,25 @@ export function daysSince(today, born) {
 export function inMercuryYrs(ageDays){ //Takes a parameter containing the user's age in Earth-days, and returns their age in Mercury-years.  
   //1 solar year on Mercury = 87.6 Earth-Days. 
   let retval = ageDays/87.6; 
-  //console.log("Age in Mercury-years (unrounded) =  " + retval); 
-  //console.log("Age in Mercury-years after application of rounding by '.toFixed(1)' =  " + retval.toFixed(1));
+  console.log("Age in Mercury-years (unrounded) =  " + retval); 
+  console.log("Age in Mercury-years after application of rounding by '.toFixed(1)' =  " + retval.toFixed(1));
   return Number((retval).toFixed(1)); 
 }
 
 export function inVenusYrs(ageDays){ //Takes a parameter containing the user's age in Earth-days, and returns their age in Venus-years. 
   //1 Solar Year on Venus = 226.3 Earth-Days. 
-  //console.log("Age in Venus-years after application of rounding by '.toFixed(1)' =  " + (ageDays/226.3).toFixed(1));
+  console.log("Age in Venus-years after application of rounding by '.toFixed(1)' =  " + (ageDays/226.3).toFixed(1));
   return Number((ageDays/226.3).toFixed(1));
 }
 
 export function inMarsYrs(ageDays){ //Takes a parameter containing the user's age in Earth-days, and returns their age in Mars-years. 
   //1 Solar Year on Mars = 686.2 Earth-Days. 
-  //console.log("Age in Mars-years after application of rounding by '.toFixed(2)' =  " + (ageDays/686.2).toFixed(2));
+  console.log("Age in Mars-years after application of rounding by '.toFixed(2)' =  " + (ageDays/686.2).toFixed(2));
   return Number((ageDays/686.2).toFixed(2)); 
 }
 
 export function inJupiterYrs(ageDays){ //Takes a parameter containing the user's age in Earth-days, and returns their age in Jupiter-years. 
   //1 Solar Year on Jupiter = 4328.9 Earth-Days. 
-  //console.log("Age in Jupiter-years after application of rounding by '.toFixed(2)' =  " + (ageDays/4328.9).toFixed(2));
+  console.log("Age in Jupiter-years after application of rounding by '.toFixed(2)' =  " + (ageDays/4328.9).toFixed(2));
+  return Number((ageDays/4328.9).toFixed(2));
 }
