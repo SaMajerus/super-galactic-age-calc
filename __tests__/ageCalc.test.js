@@ -14,10 +14,13 @@ describe('daysSince', () => {
 });
 describe('inMercuryYrs', () => { 
 
-  test("Should return user's correct age in years, based on their age in Days", () => {
-    const earthAge = 8146; //My age (in Earth days)  
-    let age = inMercuryYrs(earthAge);
-    
-    expect(age === (earthAge/87.6)); 
-  });
+  test("Should return user's correct age in Mercury-years, based on their age in Days", () => {
+    const earthAge1 = 8146; //My age (in Earth days)  
+    const earthAge2 = 8280; //Age in Earth-days of an individual born on 1-1-2000. 
+    let age1 = inMercuryYrs(earthAge1);
+    let age2 = inMercuryYrs(earthAge2);
+
+    expect(age1).toEqual(93.0);
+    expect(age2).toEqual(94.5); 
+  }); 
 });

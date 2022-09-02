@@ -7,8 +7,9 @@ export function daysSince(today, born) {
 export function inMercuryYrs(ageDays){ //Takes a parameter containing the user's age in Earth-days, and returns their age in Mercury-years.  
   //1 solar year on Mercury = 87.6 Earth-Days. 
   let retval = ageDays/87.6; 
-  //console.log("Age in Mercury-years (unrounded) =  " + retval); 
-  return(Math.ceil(retval)); 
+  console.log("Age in Mercury-years (unrounded) =  " + retval); 
+  console.log("Age in Mercury-years after application of rounding by '.toFixed(1)' =  " + retval.toFixed(1));
+  return parseInt((retval).toFixed(1)); 
 }
 
 /*
