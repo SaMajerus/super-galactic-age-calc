@@ -50,7 +50,7 @@ export default class ageCalc{
   }
 
   yearsLeftVenus(userAge, lifeEx){  
-    let lifeExpect = Number((lifeEx/226.3).toFixed(2));  //Calculated average life expectancy of User (based on Earth demographics) on Mercury in Mercury-years. 
+    let lifeExpect = Number((lifeEx/226.3).toFixed(1));  //Calculated average life expectancy of User (based on Earth demographics) on Mercury in Mercury-years. 
     let retval = lifeExpect - userAge;  //Subtracts user's age (in Mercury-years) from total average life expectancy (also in Mercury-years). 
     console.log("Time left on Venus (in Venus-years):  " + retval); 
     if(retval < 0){ //[Any tests that meet this condition should be expecting a string value]
@@ -61,7 +61,7 @@ export default class ageCalc{
   }
 
   yearsLeftMars(userAge, lifeEx){  
-    let lifeExpect = Number((lifeEx/686.2).toFixed(2));  //Calculated average life expectancy of User (based on Earth demographics) on Mercury in Mercury-years. 
+    let lifeExpect = Number((lifeEx/686.2).toFixed(1));  //Calculated average life expectancy of User (based on Earth demographics) on Mercury in Mercury-years. 
     let retval = lifeExpect - userAge;  //Subtracts user's age (in Mercury-years) from total average life expectancy (also in Mercury-years). 
     console.log("Time left on Mars (in Mars-years):  " + retval); 
     if(retval < 0){ //[Any tests that meet this condition should be expecting a string value]
@@ -72,7 +72,7 @@ export default class ageCalc{
   }
 
   yearsLeftJupiter(userAge, lifeEx){  
-    let lifeExpect = Number((lifeEx/4328.9).toFixed(2));  //Calculated average life expectancy of User (based on Earth demographics) on Mercury in Mercury-years. 
+    let lifeExpect = Number((lifeEx/4328.9).toFixed(1));  //Calculated average life expectancy of User (based on Earth demographics) on Mercury in Mercury-years. 
     let retval = lifeExpect - userAge;  //Subtracts user's age (in Mercury-years) from total average life expectancy (also in Mercury-years). 
     console.log("Time left on Jupiter (in Jupiter-years):  " + retval); 
     if(retval < 0){ //[Any tests that meet this condition should be expecting a string value]
