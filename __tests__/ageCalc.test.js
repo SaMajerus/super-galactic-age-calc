@@ -3,6 +3,7 @@ import { inMercuryYrs } from '../src/js/ageCalc.js';
 import { inVenusYrs } from '../src/js/ageCalc.js';
 import { inMarsYrs } from '../src/js/ageCalc.js';
 import { inJupiterYrs } from '../src/js/ageCalc.js';
+import { yearsLeft } from '../src/js/ageCalc.js';
 
 describe('daysSince', () => {  
   test("Should return user's correct age in days, based on entered birthdate", () => {
@@ -54,5 +55,15 @@ describe('inJupiterYrs', () => {
     const earthAge = 8146; //My age (in Earth days) 
     let age = inJupiterYrs(earthAge); 
     expect(age).toEqual(1.88);
+  }); 
+});
+
+describe('yearsLeft', () => { 
+  test("It should determine how many years they'd have left to live if they were on Mercury.", () => { 
+    const earthAge = 8146; //My age (in Earth days) 
+    const lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README). 
+    let ageComp = yearsLeft(earthAge, lifeExp); 
+    
+    expect(ageComp).toEqual(0);  
   }); 
 });

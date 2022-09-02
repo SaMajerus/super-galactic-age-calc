@@ -28,3 +28,8 @@ export function inJupiterYrs(ageDays){ //Takes a parameter containing the user's
   console.log("Age in Jupiter-years after application of rounding by '.toFixed(2)' =  " + (ageDays/4328.9).toFixed(2));
   return Number((ageDays/4328.9).toFixed(2));
 }
+
+/*
+export function yearsLeft(currEarthAge, lifeExpectancy){  //Compares user's current age to what their demographic's average life expectancy would be on Mercury, Venus, Mars and/or Jupiter. (This is based solely on the result of comparing two age calculations). Then, tell's user how long they have left to live or, if their current age exceeds the calculated expectancy, how far past (for a given planet) they are [positive number, not in Earth-years but that of the given planet]. 
+}
+*/
