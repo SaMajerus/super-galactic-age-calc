@@ -1,7 +1,7 @@
 import { daysSince } from '../src/js/ageCalc.js';
 import { inMercuryYrs } from '../src/js/ageCalc.js';
 import { inVenusYrs } from '../src/js/ageCalc.js';
-//import { inMarsYrs } from '../src/js/ageCalc.js';
+import { inMarsYrs } from '../src/js/ageCalc.js';
 //import { inJupiterYrs } from '../src/js/ageCalc.js';
 
 describe('daysSince', () => {  
@@ -20,7 +20,7 @@ describe('inMercuryYrs', () => {
     const earthAge = 8146; //My age (in Earth days)  
     let age = inMercuryYrs(earthAge);
 
-    expect(age).toEqual(93);
+    expect(age).toEqual(93.0);
   }); 
   test("Should return user's correct age in Mercury-years (based on their age in Days), and rounded to the nearest tenth.", () => {
     const earthAge1 = 8146; //My age (in Earth days)  
@@ -41,15 +41,15 @@ describe('inVenusYrs', () => {
   }); 
 });
 
-/*
 describe('inMarsYrs', () => { 
   test("Should return user's correct age in Mars-years, rounded to the nearest tenth.", () => {
     const earthAge = 8146; //My age (in Earth days) 
     let age = inMarsYrs(earthAge); 
-    expect(age).toEqual();
+    expect(age).toEqual(11.9);
   }); 
 });
 
+/*
 describe('inJupiterYrs', () => { 
   test("Should return user's correct age in Jupiter-years, rounded to the nearest tenth.", () => {
     const earthAge = 8146; //My age (in Earth days) 
