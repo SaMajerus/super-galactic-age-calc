@@ -1,5 +1,4 @@
 /*     Business Logic     */
-
 export function daysSince(today, born) {
   return((today-born)/86400000);  //1 Day = 86,400,000 milliseconds (ms)
 } 
@@ -18,7 +17,6 @@ export function inVenusYrs(ageDays){ //Takes a parameter containing the user's a
   return Number((ageDays/226.3).toFixed(1));
 }
 
-
 export function inMarsYrs(ageDays){ //Takes a parameter containing the user's age in Earth-days, and returns their age in Mars-years. 
   //1 Solar Year on Mars = 686.2 Earth-Days. 
   //console.log("Age in Mars-years after application of rounding by '.toFixed(2)' =  " + (ageDays/686.2).toFixed(2));
@@ -26,7 +24,8 @@ export function inMarsYrs(ageDays){ //Takes a parameter containing the user's ag
 }
 
 /*
-export function inJuptierYrs(ageDays){ //Takes a parameter containing the user's age in Earth-days, and returns their age in Jupiter-years. 
-  //1 Solar Year on Venus = 4328.9 Earth-Days. 
+export function inJupiterYrs(ageDays){ //Takes a parameter containing the user's age in Earth-days, and returns their age in Jupiter-years. 
+  //1 Solar Year on Jupiter = 4328.9 Earth-Days. 
+  //console.log("Age in Jupiter-years after application of rounding by '.toFixed(2)' =  " + (ageDays/686.2).toFixed(2));
 }
 */
