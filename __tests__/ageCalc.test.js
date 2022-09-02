@@ -18,6 +18,6 @@ describe('inMercuryYrs', () => {
     const earthAge = 8146; //My age (in Earth days)  
     let age = inMercuryYrs(earthAge);
     
-    expect(age).toEqual(92.99); 
+    expect(age).toEqual(93); 
   });
 });
