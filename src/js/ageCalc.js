@@ -23,9 +23,7 @@ export function inMarsYrs(ageDays){ //Takes a parameter containing the user's ag
   return Number((ageDays/686.2).toFixed(2)); 
 }
 
-/*
 export function inJupiterYrs(ageDays){ //Takes a parameter containing the user's age in Earth-days, and returns their age in Jupiter-years. 
   //1 Solar Year on Jupiter = 4328.9 Earth-Days. 
-  //console.log("Age in Jupiter-years after application of rounding by '.toFixed(2)' =  " + (ageDays/686.2).toFixed(2));
+  //console.log("Age in Jupiter-years after application of rounding by '.toFixed(2)' =  " + (ageDays/4328.9).toFixed(2));
 }
-*/
