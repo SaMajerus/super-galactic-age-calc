@@ -113,7 +113,7 @@ describe('yearsLeftMars', () => {
     let userObj = new ageCalc(d8Today, bday, lifeExp);
 
     let ageComp = userObj.yearsLeftMars(userObj.inMarsYrs(), userObj.earthLifeEx); 
-    expect(ageComp).toEqual(); 
+    expect(ageComp).toEqual(30.03); 
   });  
 }); 
 /*
