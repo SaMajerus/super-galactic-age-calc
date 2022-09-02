@@ -1,69 +1,108 @@
-import { daysSince } from '../src/js/ageCalc.js';
-import { inMercuryYrs } from '../src/js/ageCalc.js';
-import { inVenusYrs } from '../src/js/ageCalc.js';
-import { inMarsYrs } from '../src/js/ageCalc.js';
-import { inJupiterYrs } from '../src/js/ageCalc.js';
-import { yearsLeft } from '../src/js/ageCalc.js';
+import ageCalc from '../src/js/ageCalc.js';
 
 describe('daysSince', () => {  
   test("Should return user's correct age in days, based on entered birthdate", () => {
-    //When calling Date like below  ('year number', 'month number', 'date number'), note this:   the Month number goes from 0-11.
-    let bday = new Date(2000, 4, 14); //User's entered birthday [using my own in this test]. 
-    let d8Today = new Date(2022, 8, 2);  //Today's date, entered by user.
-    let ageDays = daysSince(d8Today, bday); //Age in days 
-
+    //Syntax used by Date object on next 2 lines:  ('year number' [yyyy], 'month number' [0-11], 'date number' [1-31])
+    let bday = new Date(2000, 4, 14); //User's entered birthday (using my own here).  [My Age today in Earth-Days = 8146] 
+    let d8Today = new Date(2022, 8, 2);  //Today's date (assume it's entered by user). 
+    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let userObj = new ageCalc(d8Today, bday, lifeExp); 
+    
+    let ageDays = userObj.daysSince(); //Age in days 
     expect(ageDays).toEqual(8146);  //As of today (9-2-2022), this is how many days since 5-14-2000.
   });
 });
 
 describe('inMercuryYrs', () => { 
-  test("Should return user's correct age in Mercury-years, based on their age in Days", () => {
-    const earthAge = 8146; //My age (in Earth days)  
-    let age = inMercuryYrs(earthAge);
+  let bday; 
+  let d8Today; 
+  let lifeExp; 
 
-    expect(age).toEqual(93.0);
+  beforeEach(() => {
+    bday = new Date(2000, 4, 14); //User's entered birthday (using my own here).  [My Age today in Earth-Days = 8146] 
+    d8Today = new Date(2022, 8, 2);  //Today's date (assume it's entered by user).   
+    lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README). 
+  }); 
+
+  test("Should return user's correct age in Mercury-years, based on their age in Days", () => { 
+    let userObj = new ageCalc(d8Today, bday, lifeExp);
+    let age = userObj.inMercuryYrs(); 
+    expect(age).toEqual(93.0); 
   }); 
   test("Should return user's correct age in Mercury-years (based on their age in Days), and rounded to the nearest tenth.", () => {
-    const earthAge1 = 8146; //My age (in Earth days)  
-    const earthAge2 = 8280; //Age in Earth-days (as of today) for an individual who was born on 1-1-2000. 
-    let age1 = inMercuryYrs(earthAge1);
-    let age2 = inMercuryYrs(earthAge2);
+    let bday2 = new Date(2000, 0, 1); //Another individual's entered birthday.  [Age today in Earth-Days = 8280] 
+    let user1 = new ageCalc(d8Today, bday, lifeExp); 
+    let user2 = new ageCalc(d8Today, bday2, lifeExp); 
 
-    expect(age1).toEqual(93.0);
+    let age1 = user1.inMercuryYrs(); 
+    let age2 = user2.inMercuryYrs(); 
+
+    expect(age1).toEqual(93.0); 
     expect(age2).toEqual(94.5); 
   });
 });
 
 describe('inVenusYrs', () => { 
   test("Should return user's correct age in Venus-years, rounded to the nearest tenth.", () => {
-    const earthAge = 8146; //My age (in Earth days) 
-    let age = inVenusYrs(earthAge); 
+    let bday = new Date(2000, 4, 14); //User's entered birthday (using my own here).  [My Age today in Earth-Days = 8146] 
+    let d8Today = new Date(2022, 8, 2);  //Today's date (assume it's entered by user).  
+    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let userObj = new ageCalc(d8Today, bday, lifeExp);
+ 
+    let age = userObj.inVenusYrs(); 
     expect(age).toEqual(36.0);
   }); 
 });
 
 describe('inMarsYrs', () => { 
-  test("Should return user's correct age in Mars-years, rounded to the nearest tenth.", () => {
-    const earthAge = 8146; //My age (in Earth days) 
-    let age = inMarsYrs(earthAge); 
+  test("Should return user's correct age in Mars-years, rounded to the nearest hundredth.", () => {
+    let bday = new Date(2000, 4, 14); //User's entered birthday (using my own here).  [My Age today in Earth-Days = 8146] 
+    let d8Today = new Date(2022, 8, 2);  //Today's date (assume it's entered by user).    
+    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let userObj = new ageCalc(d8Today, bday, lifeExp);
+
+    let age = userObj.inMarsYrs(); 
     expect(age).toEqual(11.87);
   }); 
 });
 
 describe('inJupiterYrs', () => { 
-  test("Should return user's correct age in Jupiter-years, rounded to the nearest tenth.", () => {
-    const earthAge = 8146; //My age (in Earth days) 
-    let age = inJupiterYrs(earthAge); 
+  test("Should return user's correct age in Jupiter-years, rounded to the nearest hundredth.", () => {
+    let bday = new Date(2000, 4, 14); //User's entered birthday (using my own here).  [My Age today in Earth-Days = 8146] 
+    let d8Today = new Date(2022, 8, 2);  //Today's date (assume it's entered by user).    
+    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let userObj = new ageCalc(d8Today, bday, lifeExp);
+
+    let age = userObj.inJupiterYrs(); 
     expect(age).toEqual(1.88);
   }); 
 });
 
 describe('yearsLeft', () => { 
+  let bday; 
+  let d8Today; 
+  let lifeExp; 
+  let userObj; 
+
+  beforeEach(() => {
+    bday = new Date(2000, 4, 14); //User's entered birthday [using my own in this test].
+    d8Today = new Date(2022, 8, 2);  //Today's date, entered by user.  
+    lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    userObj = new ageCalc(d8Today, bday, lifeExp); 
+  });
+
+  test("It should determine what the average life expectancy of the User's demographic is in Mercury-years.", () => {  
+    let ageComp = userObj.yearsLeft("Mercury"); 
+    expect(ageComp).toEqual(0);  
+  }); 
+  
+  /*
   test("It should determine how many years they'd have left to live if they were on Mercury.", () => { 
     const earthAge = 8146; //My age (in Earth days) 
     const lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README). 
     let ageComp = yearsLeft(earthAge, lifeExp); 
     
     expect(ageComp).toEqual(0);  
-  }); 
+  });
+  */ 
 });
