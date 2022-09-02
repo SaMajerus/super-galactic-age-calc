@@ -45,7 +45,7 @@ describe('inMarsYrs', () => {
   test("Should return user's correct age in Mars-years, rounded to the nearest tenth.", () => {
     const earthAge = 8146; //My age (in Earth days) 
     let age = inMarsYrs(earthAge); 
-    expect(age).toEqual(11.9);
+    expect(age).toEqual(11.87);
   }); 
 });
 

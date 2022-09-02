@@ -14,12 +14,15 @@ export function inMercuryYrs(ageDays){ //Takes a parameter containing the user's
 
 export function inVenusYrs(ageDays){ //Takes a parameter containing the user's age in Earth-days, and returns their age in Venus-years. 
   //1 Solar Year on Venus = 226.3 Earth-Days. 
+  //console.log("Age in Venus-years after application of rounding by '.toFixed(1)' =  " + (ageDays/226.3).toFixed(1));
   return Number((ageDays/226.3).toFixed(1));
 }
 
 
 export function inMarsYrs(ageDays){ //Takes a parameter containing the user's age in Earth-days, and returns their age in Mars-years. 
   //1 Solar Year on Mars = 686.2 Earth-Days. 
+  //console.log("Age in Mars-years after application of rounding by '.toFixed(2)' =  " + (ageDays/686.2).toFixed(2));
+  return Number((ageDays/686.2).toFixed(2)); 
 }
 
 /*
