@@ -116,7 +116,7 @@ describe('yearsLeftMars', () => {
     expect(ageComp).toEqual(30.03); 
   });  
 }); 
-/*
+
 describe('yearsLeftJupiter', () => { 
 
   test("It should determine how many years the User would have left in Mercury-years.", () => {  
@@ -129,4 +129,3 @@ describe('yearsLeftJupiter', () => {
     expect(ageComp).toEqual(); 
   });  
 });
-*/
