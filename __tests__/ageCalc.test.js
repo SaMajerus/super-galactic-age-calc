@@ -78,31 +78,53 @@ describe('inJupiterYrs', () => {
   }); 
 });
 
-describe('yearsLeft', () => { 
-  let bday; 
-  let d8Today; 
-  let lifeExp; 
-  let userObj; 
+describe('yearsLeftMercury', () => { 
 
-  beforeEach(() => {
-    bday = new Date(2000, 4, 14); //User's entered birthday [using my own in this test].
-    d8Today = new Date(2022, 8, 2);  //Today's date, entered by user.  
-    lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
-    userObj = new ageCalc(d8Today, bday, lifeExp); 
-  });
+  test("It should determine how many years the User would have left in Mercury-years.", () => {  
+    let bday = new Date(2000, 4, 14); //User's entered birthday [using my own in this test].
+    let d8Today = new Date(2022, 8, 2);  //Today's date, entered by user.  
+    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let userObj = new ageCalc(d8Today, bday, lifeExp);
 
-  test("It should determine what the average life expectancy of the User's demographic is in Mercury-years.", () => {  
-    let ageComp = userObj.yearsLeft("Mercury"); 
-    expect(ageComp).toEqual(328.33); 
+    let ageComp = userObj.yearsLeftMercury(userObj.inMercuryYrs(), userObj.earthLifeEx); 
+    expect(ageComp).toEqual(235.3); 
   }); 
-  
-  /*
-  test("It should determine how many years they'd have left to live if they were on Mercury.", () => { 
-    const earthAge = 8146; //My age (in Earth days) 
-    const lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README). 
-    let ageComp = yearsLeft(earthAge, lifeExp); 
-    
-    expect(ageComp).toEqual(0);  
-  });
-  */ 
 });
+/*
+describe('yearsLeftVenus', () => { 
+
+  test("It should determine how many years the User would have left in Mercury-years.", () => {  
+    let bday = new Date(2000, 4, 14); //User's entered birthday [using my own in this test].
+    let d8Today = new Date(2022, 8, 2);  //Today's date, entered by user.  
+    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let userObj = new ageCalc(d8Today, bday, lifeExp);
+
+    let ageComp = userObj.yearsLeftVenus(userObj.inVenusYrs(), userObj.earthLifeEx); 
+    expect(ageComp).toEqual(); 
+  });  
+}); 
+describe('yearsLeftMars', () => { 
+
+  test("It should determine how many years the User would have left in Mercury-years.", () => {  
+    let bday = new Date(2000, 4, 14); //User's entered birthday [using my own in this test].
+    let d8Today = new Date(2022, 8, 2);  //Today's date, entered by user.  
+    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let userObj = new ageCalc(d8Today, bday, lifeExp);
+
+    let ageComp = userObj.yearsLeftMars(userObj.inMarsYrs(), userObj.earthLifeEx); 
+    expect(ageComp).toEqual(); 
+  });  
+}); 
+describe('yearsLeftJupiter', () => { 
+
+  test("It should determine how many years the User would have left in Mercury-years.", () => {  
+    let bday = new Date(2000, 4, 14); //User's entered birthday [using my own in this test].
+    let d8Today = new Date(2022, 8, 2);  //Today's date, entered by user.  
+    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let userObj = new ageCalc(d8Today, bday, lifeExp);
+
+    let ageComp = userObj.yearsLeftJupiter(userObj.inJupiterYrs(), userObj.earthLifeEx); 
+    expect(ageComp).toEqual(); 
+  });  
+});
+*/
