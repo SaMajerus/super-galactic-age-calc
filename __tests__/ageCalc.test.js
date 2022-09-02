@@ -100,7 +100,7 @@ describe('yearsLeftVenus', () => {
     let userObj = new ageCalc(d8Today, bday, lifeExp);
 
     let ageComp = userObj.yearsLeftVenus(userObj.inVenusYrs(), userObj.earthLifeEx); 
-    expect(ageComp).toEqual(); 
+    expect(ageComp).toEqual(91.1); 
   });  
 }); 
 /*
