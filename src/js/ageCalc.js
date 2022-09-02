@@ -4,7 +4,7 @@ export default class ageCalc{
     this.currDay = today; 
     this.birthday = born;
     this.currAge = this.daysSince(); //Age in Earth-days
-    this.earthLifeEx = demographicLifeEx * 365; 
+    this.earthLifeEx = demographicLifeEx * 365;  //Reminder-for-self: 'demographicLifeEx' set to 78.8 [Earth-Years].
   }
 
   daysSince() {
@@ -39,7 +39,7 @@ export default class ageCalc{
 
   yearsLeft(givenPlanet){  //Compares user's current age to what their demographic's average life expectancy would be on a given 'planet': Mercury, Venus, Mars or Jupiter (user's choice). This is based solely on the result of comparing two age calculations.   Then, tells user how long they have left to live OR, if their current age exceeds the calculated life expectancy, how far past the average they are [positive number]. 
     this.planet = givenPlanet; 
-    let lifeExCalcd = this.earthLifeEx/87.6; 
-    return lifeExCalcd; 
+    let lifeExCalcd = (this.earthLifeEx/87.6).toFixed(2);  //
+    return Number(lifeExCalcd); 
   }
 }

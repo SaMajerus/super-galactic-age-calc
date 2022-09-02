@@ -93,7 +93,7 @@ describe('yearsLeft', () => {
 
   test("It should determine what the average life expectancy of the User's demographic is in Mercury-years.", () => {  
     let ageComp = userObj.yearsLeft("Mercury"); 
-    expect(ageComp).toEqual(0);  
+    expect(ageComp).toEqual(328.33); 
   }); 
   
   /*
