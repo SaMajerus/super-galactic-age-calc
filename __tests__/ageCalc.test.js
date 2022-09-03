@@ -126,6 +126,6 @@ describe('yearsLeftJupiter', () => {
     let userObj = new ageCalc(d8Today, bday, lifeExp);
 
     let ageComp = userObj.yearsLeftJupiter(userObj.inJupiterYrs(), userObj.earthLifeEx); 
-    expect(ageComp).toEqual(); 
+    expect(ageComp).toEqual(4.72); 
   });  
 });
