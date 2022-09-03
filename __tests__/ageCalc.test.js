@@ -5,7 +5,7 @@ describe('daysSince', () => {
     //Syntax used by Date object on next 2 lines:  ('year number' [yyyy], 'month number' [0-11], 'date number' [1-31])
     let bday = new Date(2000, 4, 14); //User's entered birthday (using my own here).  [My Age today in Earth-Days = 8146] 
     let d8Today = new Date(2022, 8, 2);  //Today's date (assume it's entered by user). 
-    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let lifeExp = 52.2656;  //My personal, Remaining life expectancy based off of my demographic: "White, 22ish year-old male".  (See 'other notes' [bulle point 2] in README's Description section for source info, and how I found this number.)
     let userObj = new ageCalc(d8Today, bday, lifeExp); 
     
     let ageDays = userObj.daysSince(); //Age in days 
@@ -21,7 +21,7 @@ describe('inMercuryYrs', () => {
   beforeEach(() => {
     bday = new Date(2000, 4, 14); //User's entered birthday (using my own here).  [My Age today in Earth-Days = 8146] 
     d8Today = new Date(2022, 8, 2);  //Today's date (assume it's entered by user).   
-    lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README). 
+    lifeExp = 52.2656;  //My personal, Remaining life expectancy based off of my demographic: "White, 22ish year-old male".  (See 'other notes' [bulle point 2] in README's Description section for source info, and how I found this number.)
   }); 
 
   test("Should return user's correct age in Mercury-years, based on their age in Days", () => { 
@@ -46,7 +46,7 @@ describe('inVenusYrs', () => {
   test("Should return user's correct age in Venus-years, rounded to the nearest tenth.", () => {
     let bday = new Date(2000, 4, 14); //User's entered birthday (using my own here).  [My Age today in Earth-Days = 8146] 
     let d8Today = new Date(2022, 8, 2);  //Today's date (assume it's entered by user).  
-    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let lifeExp = 52.2656;  //My personal, Remaining life expectancy based off of my demographic: "White, 22ish year-old male".  (See 'other notes' [bulle point 2] in README's Description section for source info, and how I found this number.)
     let userObj = new ageCalc(d8Today, bday, lifeExp);
  
     let age = userObj.inVenusYrs(); 
@@ -58,7 +58,7 @@ describe('inMarsYrs', () => {
   test("Should return user's correct age in Mars-years, rounded to the nearest hundredth.", () => {
     let bday = new Date(2000, 4, 14); //User's entered birthday (using my own here).  [My Age today in Earth-Days = 8146] 
     let d8Today = new Date(2022, 8, 2);  //Today's date (assume it's entered by user).    
-    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let lifeExp = 52.2656;  //My personal, Remaining life expectancy based off of my demographic: "White, 22ish year-old male".  (See 'other notes' [bulle point 2] in README's Description section for source info, and how I found this number.)
     let userObj = new ageCalc(d8Today, bday, lifeExp);
 
     let age = userObj.inMarsYrs(); 
@@ -70,7 +70,7 @@ describe('inJupiterYrs', () => {
   test("Should return user's correct age in Jupiter-years, rounded to the nearest hundredth.", () => {
     let bday = new Date(2000, 4, 14); //User's entered birthday (using my own here).  [My Age today in Earth-Days = 8146] 
     let d8Today = new Date(2022, 8, 2);  //Today's date (assume it's entered by user).    
-    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let lifeExp = 52.2656;  //My personal, Remaining life expectancy based off of my demographic: "White, 22ish year-old male".  (See 'other notes' [bulle point 2] in README's Description section for source info, and how I found this number.)
     let userObj = new ageCalc(d8Today, bday, lifeExp);
 
     let age = userObj.inJupiterYrs(); 
@@ -83,7 +83,7 @@ describe('yearsLeftMercury', () => {
   test("It should determine how many years the User would have left in Mercury-years.", () => {  
     let bday = new Date(2000, 4, 14); //User's entered birthday [using my own in this test].
     let d8Today = new Date(2022, 8, 2);  //Today's date, entered by user.  
-    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let lifeExp = 52.2656;  //My personal, Remaining life expectancy based off of my demographic: "White, 22ish year-old male".  (See 'other notes' [bulle point 2] in README's Description section for source info, and how I found this number.)
     let userObj = new ageCalc(d8Today, bday, lifeExp);
 
     let ageComp = userObj.yearsLeftMercury(userObj.inMercuryYrs(), userObj.earthLifeEx); 
@@ -93,10 +93,10 @@ describe('yearsLeftMercury', () => {
 
 describe('yearsLeftVenus', () => { 
 
-  test("It should determine how many years the User would have left in Mercury-years.", () => {  
+  test("It should determine how many years the User would have left in Venus-years.", () => {  
     let bday = new Date(2000, 4, 14); //User's entered birthday [using my own in this test].
     let d8Today = new Date(2022, 8, 2);  //Today's date, entered by user.  
-    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let lifeExp = 52.2656;  //My personal, Remaining life expectancy based off of my demographic: "White, 22ish year-old male".  (See 'other notes' [bulle point 2] in README's Description section for source info, and how I found this number.)
     let userObj = new ageCalc(d8Today, bday, lifeExp);
 
     let ageComp = userObj.yearsLeftVenus(userObj.inVenusYrs(), userObj.earthLifeEx); 
@@ -106,26 +106,65 @@ describe('yearsLeftVenus', () => {
 
 describe('yearsLeftMars', () => { 
 
-  test("It should determine how many years the User would have left in Mercury-years.", () => {  
+  test("It should determine how many years the User would have left in Mars-years.", () => {  
     let bday = new Date(2000, 4, 14); //User's entered birthday [using my own in this test].
     let d8Today = new Date(2022, 8, 2);  //Today's date, entered by user.  
-    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let lifeExp = 52.2656;  //My personal, Remaining life expectancy based off of my demographic: "White, 22ish year-old male".  (See 'other notes' [bulle point 2] in README's Description section for source info, and how I found this number.) 
     let userObj = new ageCalc(d8Today, bday, lifeExp);
 
     let ageComp = userObj.yearsLeftMars(userObj.inMarsYrs(), userObj.earthLifeEx); 
     expect(ageComp).toEqual(30.03); 
   });  
-}); 
+});
 
 describe('yearsLeftJupiter', () => { 
 
-  test("It should determine how many years the User would have left in Mercury-years.", () => {  
+  test("It should determine how many years the User would have left in Jupiter-years.", () => {  
     let bday = new Date(2000, 4, 14); //User's entered birthday [using my own in this test].
-    let d8Today = new Date(2022, 8, 2);  //Today's date, entered by user.  
-    let lifeExp = 78.8;  //Average life expectancy of my demographic -- white male -- in USA as of 2019, according to World Bank (Google Search link in README).
+    let d8Today = new Date(2022, 8, 2);  //"Today's date", entered by user.  
+    let lifeExp = 52.2656;  //My personal, Remaining life expectancy based off of my demographic: "White, 22ish year-old male".  (See 'other notes' [bulle point 2] in README's Description section for source info, and how I found this number.) 
     let userObj = new ageCalc(d8Today, bday, lifeExp);
 
     let ageComp = userObj.yearsLeftJupiter(userObj.inJupiterYrs(), userObj.earthLifeEx); 
-    expect(ageComp).toEqual(4.72); 
+    expect(ageComp).toEqual(30.03); 
   });  
 });
+
+describe('yearsLeftPlanet', () => { 
+  let bday; 
+  let d8Today; 
+  let lifeExp; 
+  let userObj; 
+
+  beforeEach( () => {
+    bday = new Date(2000, 4, 14); //User's entered birthday [using my own in this test].
+    d8Today = new Date(2022, 8, 2);  //"Today's date", entered by user.  
+    lifeExp = 52.2656;  //My personal, Remaining life expectancy (in Earth-years) based off of my demographic: "White, 22ish year-old male".  (See 'other notes' [bulle point 2] in README's Description section for source info, and how I found this number.)
+    userObj = new ageCalc(d8Today, bday, lifeExp);
+  })
+
+  test("It should determine how many years the User would have left in Mercury-years", () => {  
+    
+    let ageComp = userObj.yearsLeftPlanet(userObj.inMercuryYrs(), userObj.earthLifeEx, "Mercury"); 
+    expect(typeof ageComp === String); 
+    expect(typeof ageComp === Number); 
+  });
+  test("It should determine how many years the User would have left in Venus-years", () => {  
+    
+    let ageComp = userObj.yearsLeftPlanet(userObj.inVenusYrs(), userObj.earthLifeEx, "Venus"); 
+    expect(typeof ageComp === String); 
+    expect(typeof ageComp === Number); 
+  });
+  test("It should determine how many years the User would have left in Mars-years", () => {  
+    
+    let ageComp = userObj.yearsLeftPlanet(userObj.inMarsYrs(), userObj.earthLifeEx, "Mars"); 
+    expect(typeof ageComp === String); 
+    expect(typeof ageComp === Number); 
+  });
+  test("It should determine how many years the User would have left in Jupiter-years", () => {  
+    
+    let ageComp = userObj.yearsLeftPlanet(userObj.inJupiterYrs(), userObj.earthLifeEx, "Jupiter"); 
+    expect(typeof ageComp === String); 
+    expect(typeof ageComp === Number); 
+  });  
+}); 
