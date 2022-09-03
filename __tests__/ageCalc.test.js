@@ -77,7 +77,7 @@ describe('inJupiterYrs', () => {
     expect(age).toEqual(1.88);
   }); 
 });
-
+/*
 describe('yearsLeftMercury', () => { 
 
   test("It should determine how many years the User would have left in Mercury-years.", () => {  
@@ -128,7 +128,7 @@ describe('yearsLeftJupiter', () => {
     let ageComp = userObj.yearsLeftJupiter(userObj.inJupiterYrs(), userObj.earthLifeEx); 
     expect(ageComp).toEqual(30.03); 
   });  
-});
+});*/
 
 describe('yearsLeftPlanet', () => { 
   let bday; 

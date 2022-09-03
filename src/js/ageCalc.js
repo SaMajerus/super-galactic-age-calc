@@ -38,6 +38,7 @@ export default class ageCalc{
   }
 
   //Compares user's current age to what their demographic's average life expectancy would be on a given 'planet': Mercury, Venus, Mars or Jupiter (user's choice). This is based solely on the result of comparing two age calculations.   Then, tells user how long they have left to live OR, if their current age exceeds the calculated life expectancy, how far past the average they are [positive number].
+  /*
   yearsLeftMercury(userAge, lifeEx) {  
     let lifeExpect = Number((lifeEx/87.6).toFixed(1));  //Calculated average life expectancy of User (based on Earth demographics) on Mercury in Mercury-years. 
     let retval = lifeExpect - userAge;  //Subtracts user's age (in Mercury-years) from total average life expectancy (also in Mercury-years). 
@@ -86,7 +87,7 @@ export default class ageCalc{
     }else{
       return Number(retval.toFixed(2));
     } 
-  }
+  }*/
 
   yearsLeftPlanet(userAge, lifeEx, planetName) {  
     //'Earth-years to [planetName]-years conversion' -- Divisor values
@@ -98,28 +99,28 @@ export default class ageCalc{
     //Other variables
     let lifeExNeo;  //Calculated remaining life expectancy of User on ['planetName'] (in ['planetName']-years).
     let retval;
+    let yearsPast; 
 
-    console.log("RLE in Earth-Years =  " + lifeEx); 
+    console.log(`RLE in Earth-Years =  ${lifeEx}`); 
     if(planetName === "Mercury") {
       lifeExNeo = Number((lifeEx/earthToMcy).toFixed(2));  
-      console.log("RLE in Mercury-years =  " + lifeExNeo); 
     } else if(planetName === "Venus") {
       lifeExNeo = Number((lifeEx/earthToVns).toFixed(2));  
-      console.log("RLE in Venus-years =  " + lifeExNeo); 
     } else if(planetName === "Mars") {
       lifeExNeo = Number((lifeEx/earthToMars).toFixed(2));   
-      console.log("RLE in Mars-years =  " + lifeExNeo); 
     } else {
-      lifeExNeo = Number((lifeEx/earthToJpr).toFixed(2));  
-      console.log("RLE in Jupiter-years =  " + lifeExNeo); 
+      lifeExNeo = Number((lifeEx/earthToJpr).toFixed(2)); 
     }
+    console.log(`RLE in ${planetName}-years =  ${lifeExNeo}`);
     
     retval = lifeExNeo - userAge;  //Subtracts user's age from 'lifeExNeo' (both in ['planetName']-years), to see if userAge > lifeExNeo.  (If so, retval is a -#) 
-    console.log("Time left on Jupiter (in Jupiter-years), unrounded:  " + retval); 
+    console.log(`Time left on ${planetName} (in ${planetName}-years), unrounded:  ${retval}`); 
     if(retval < 0) { //[Any tests that meet this condition should be expecting a string value]
-      let yearsPast = Number(Math.abs(retval).toFixed(2));  //Saves number of ['planetName']-years past the calculated RLE the user is. 
-      return (`Congrats! Your age indicates you've lived longer than the calculated RLE for your demographic on ${planetName} by ${yearsPast} ${planetName}-years!`); 
+      yearsPast = Number(Math.abs(retval).toFixed(2));  //Saves number of ['planetName']-years past the calculated RLE the user is. 
+      console.log(`Returning the following:   Congrats! Your age indicates that so far, you've lived longer than the calculated RLE limit for your demographic on ${planetName} by ${yearsPast} ${planetName}-years!`); 
+      return (`Congrats! Your age indicates that so far, you've lived longer than the calculated RLE for your demographic on ${planetName} by   ${yearsPast} ${planetName}-years!`); 
     } else {
+      console.log(`'retval' =  ${Number(retval.toFixed(2))} ${planetName}-years`);
       return Number(retval.toFixed(2)); 
     } 
   }
