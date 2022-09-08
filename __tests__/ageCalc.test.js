@@ -94,29 +94,29 @@ describe('yearsLeftPlanet', () => {
 
   test("It should tell the User how many Mercury-years past the estimated remaining-life-expectancy (RLE) they are.", () => {  
     
-    let ageComp = userObj.yearsLeftPlanet(userObj.inMercuryYrs(), userObj.earthLifeEx, "Mercury"); 
+    let ageComp = userObj.yearsLeftPlanet(userObj.ageInYrs, userObj.earthLifeEx, "Mercury"); 
     expect(typeof ageComp === String); 
   });
   test("It should tell the User how many Venus-years past the estimated remaining-life-expectancy (RLE) they are.", () => {  
     
-    let ageComp = userObj.yearsLeftPlanet(userObj.inVenusYrs(), userObj.earthLifeEx, "Venus"); 
+    let ageComp = userObj.yearsLeftPlanet(userObj.ageInYrs, userObj.earthLifeEx, "Venus"); 
     expect(typeof ageComp === String); 
   });
   test("It should tell the User how many Mars-years past the estimated remaining-life-expectancy (RLE) they are.", () => {  
     
-    let ageComp = userObj.yearsLeftPlanet(userObj.inMarsYrs(), userObj.earthLifeEx, "Mars"); 
+    let ageComp = userObj.yearsLeftPlanet(userObj.ageInYrs, userObj.earthLifeEx, "Mars"); 
     expect(typeof ageComp === String); 
   });
   test("It should tell the User how many Jupiter-years past the estimated remaining-life-expectancy (RLE) they are.", () => {  
     
-    let ageComp = userObj.yearsLeftPlanet(userObj.inJupiterYrs(), userObj.earthLifeEx, "Jupiter"); 
+    let ageComp = userObj.yearsLeftPlanet(userObj.ageInYrs, userObj.earthLifeEx, "Jupiter"); 
     expect(typeof ageComp === String); 
   });  
 
   beforeEach( () => {
     // bday = new Date(1922, 4, 15); //User's birthday  (assume they entered it). 
     // d8Today = new Date(2022, 8, 3);  //"Today's date" (assume it was entered by User). 
-    lifeExp = 1000;  //User's Remaining life expectancy (RLE) [in Earth-years] based off of their demographic.  (Assume they entered it.)
+    lifeExp = 1;  //User's Remaining life expectancy (RLE) [in Earth-years] based off of their demographic.  (Assume they entered it.)
     userObj = new ageCalc(d8Today, bday, lifeExp);
   });
 
@@ -124,7 +124,7 @@ describe('yearsLeftPlanet', () => {
     bday = new Date(2022, 4, 15); //User/individual's birthday  (assume they or their guardian entered it). 
     d8Today = new Date(2022, 8, 3);  //"Today's date" (assume it was entered by User).
 
-    let ageComp = userObj.yearsLeftPlanet(userObj.inMercuryYrs(), userObj.earthLifeEx, "Mercury"); 
+    let ageComp = userObj.yearsLeftPlanet(userObj.ageInYrs, userObj.earthLifeEx, "Mercury"); 
     // console.log(`[# Years Left test  (last branching case, Mercury)] -- 'ageComp' = ${ageComp}`); 
     expect(typeof ageComp === Number); 
   });  
@@ -132,7 +132,7 @@ describe('yearsLeftPlanet', () => {
     bday = new Date(2022, 4, 15); //User/individual's birthday  (assume they or their guardian entered it). 
     d8Today = new Date(2022, 8, 3);  //"Today's date" (assume it was entered by User).
     
-    let ageComp = userObj.yearsLeftPlanet(userObj.inVenusYrs(), userObj.earthLifeEx, "Venus"); 
+    let ageComp = userObj.yearsLeftPlanet(userObj.ageInYrs, userObj.earthLifeEx, "Venus"); 
     // console.log(`[# Years Left test  (last branching case, Venus)] -- 'ageComp' = ${ageComp}`); 
     expect(typeof ageComp === Number); 
   });  
@@ -140,7 +140,7 @@ describe('yearsLeftPlanet', () => {
     bday = new Date(2022, 4, 15); //User/individual's birthday  (assume they or their guardian entered it). 
     d8Today = new Date(2022, 8, 3);  //"Today's date" (assume it was entered by User).
     
-    let ageComp = userObj.yearsLeftPlanet(userObj.inMarsYrs(), userObj.earthLifeEx, "Mars"); 
+    let ageComp = userObj.yearsLeftPlanet(userObj.ageInYrs, userObj.earthLifeEx, "Mars"); 
     // console.log(`[# Years Left test  (last branching case, Mars)] -- 'ageComp' = ${ageComp}`);  
     expect(typeof ageComp === Number); 
   });  
@@ -148,7 +148,7 @@ describe('yearsLeftPlanet', () => {
     bday = new Date(1921, 4, 15); //User/individual's birthday  (assume they or their guardian entered it). 
     d8Today = new Date(2022, 8, 3);  //"Today's date" (assume it was entered by User).
     
-    let ageComp = userObj.yearsLeftPlanet(userObj.inJupiterYrs(), userObj.earthLifeEx, "Jupiter");  
+    let ageComp = userObj.yearsLeftPlanet(userObj.ageInYrs, userObj.earthLifeEx, "Jupiter");  
     // console.log(`[# Years Left test  (last branching case, Jupiter)] -- 'ageComp' = ${ageComp}`); 
     expect(typeof ageComp === Number); 
   });  
