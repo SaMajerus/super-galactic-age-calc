@@ -14,26 +14,26 @@ export default class ageCalc{
   inMercuryYrs() { //Takes a parameter containing the user's age in Earth-days, and returns their age in Mercury-years.  
     //1 Solar Year on Mercury = 87.6 Earth-Days. 
     let retval = this.currAge/87.6; 
-    console.log("Age in Mercury-years (unrounded) =  " + retval); 
-    console.log("Age in Mercury-years after application of rounding by '.toFixed(1)' =  " + retval.toFixed(1));
+    // console.log("Age in Mercury-years (unrounded) =  " + retval); 
+    // console.log("Age in Mercury-years after application of rounding by '.toFixed(1)' =  " + retval.toFixed(1));
     return Number((retval).toFixed(1)); 
   }
 
   inVenusYrs() { //Takes a parameter containing the user's age in Earth-days, and returns their age in Venus-years. 
     //1 Solar Year on Venus = 226.3 Earth-Days. 
-    console.log("Age in Venus-years after application of rounding by '.toFixed(1)' =  " + (this.currAge/226.3).toFixed(1));
+    // console.log("Age in Venus-years after application of rounding by '.toFixed(1)' =  " + (this.currAge/226.3).toFixed(1));
     return Number((this.currAge/226.3).toFixed(1));
   }
 
   inMarsYrs() { //Takes a parameter containing the user's age in Earth-days, and returns their age in Mars-years. 
     //1 Solar Year on Mars = 686.2 Earth-Days. 
-    console.log("Age in Mars-years after application of rounding by '.toFixed(2)' =  " + (this.currAge/686.2).toFixed(2));
+    // console.log("Age in Mars-years after application of rounding by '.toFixed(2)' =  " + (this.currAge/686.2).toFixed(2));
     return Number((this.currAge/686.2).toFixed(2)); 
   }
 
   inJupiterYrs() { //Takes a parameter containing the user's age in Earth-days, and returns their age in Jupiter-years. 
     //1 Solar Year on Jupiter = 4328.9 Earth-Days. 
-    console.log("Age in Jupiter-years after application of rounding by '.toFixed(2)' =  " + (this.currAge/4328.9).toFixed(2));
+    // console.log("Age in Jupiter-years after application of rounding by '.toFixed(2)' =  " + (this.currAge/4328.9).toFixed(2));
     return Number((this.currAge/4328.9).toFixed(2));
   }
 
@@ -48,10 +48,10 @@ export default class ageCalc{
     
     //Other variables
     let lifeExNeo;  //Calculated remaining life expectancy of User on ['planetName'] (in ['planetName']-years).
-    let retval;
-    let yearsPast; 
+    let retval;  //User's remaining years left on ['planetName'] (in ['planetName']-years). 
+    let yearsPast;  //
 
-    console.log(`RLE in Earth-Years =  ${lifeEx}`); 
+    // console.log(`RLE in Earth-Years =  ${lifeEx}`); 
     if(planetName === "Mercury") {
       lifeExNeo = Number((lifeEx/earthToMcy).toFixed(2));  
     } else if(planetName === "Venus") {
@@ -61,16 +61,16 @@ export default class ageCalc{
     } else {
       lifeExNeo = Number((lifeEx/earthToJpr).toFixed(2)); 
     }
-    console.log(`RLE in ${planetName}-years =  ${lifeExNeo}`);
+    // console.log(`RLE in ${planetName}-years =  ${lifeExNeo}`);
     
     retval = lifeExNeo-userAge;  //Subtracts user's age from 'lifeExNeo' (both in ['planetName']-years), to see if userAge > lifeExNeo.  (If so, retval is a -#) 
     console.log(`Time left on ${planetName} (in ${planetName}-years), unrounded:  ${retval}`); 
     if(retval < 0) { //[Any tests that meet this condition should be expecting a string value]
       yearsPast = Number(Math.abs(retval).toFixed(2));  //Saves number of ['planetName']-years past the calculated RLE the user is. 
-      console.log(`Returning the following:   Congrats! Your age indicates that so far, you've lived longer than the calculated RLE limit for your demographic on ${planetName} by ${yearsPast} ${planetName}-years!`); 
+      console.log(`[Retval Case 1 (${planetName})]     Returning the following:  Congrats! Your age indicates that so far, you've lived longer than the calculated RLE limit for your demographic on ${planetName} by ${yearsPast} ${planetName}-years!`); 
       return (`Congrats! Your age indicates that so far, you've lived longer than the calculated RLE for your demographic on ${planetName} by   ${yearsPast} ${planetName}-years!`); 
     } else {
-      console.log(`'retval' =  ${Number(retval.toFixed(2))} ${planetName}-years`);
+      console.log(`[Retval Case 2 (${planetName})]    'retval' =  ${Number(retval.toFixed(2))} ${planetName}-years`);
       return Number(retval.toFixed(2)); 
     } 
   }
