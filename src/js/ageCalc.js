@@ -54,7 +54,7 @@ export default class AgeCalc{
 
     if(this.planet === "Mercury") {
       retval = Number((userRLEOnEarth/earthToMcy).toFixed(2));  
-    } else if(this.planet === "Venus") {
+    } else if(this.planet === "Venus") { 
       retval = Number((userRLEOnEarth/earthToVns).toFixed(2));  
     } else if(this.planet === "Mars") {
       retval = Number((userRLEOnEarth/earthToMars).toFixed(2));   
