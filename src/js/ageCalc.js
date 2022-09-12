@@ -5,6 +5,7 @@ export default class AgeCalc{
     this.birthday = born; 
     this.currAge = this.daysSince(); //Age in Earth-days
     this.ageInYrs = this.yearsSince(); //Age in Earth-years
+    console.log("ageInYrs =  " + this.ageInYrs);
     this.earthLifeEx = demographicLifeEx; 
     this.planet = planetName;
   }
@@ -14,6 +15,7 @@ export default class AgeCalc{
   }
   
   yearsSince() {  //Returns age in Earth-Years rounded to the nearest tenth
+    console.log("this.currDay =  " + this.currDay); 
     return(Number(((this.currDay-this.birthday)/31540000000).toFixed(1)));  //1 Earth-Year = 31,540,000,000 milliseconds (ms) 
   }
 
@@ -35,6 +37,7 @@ export default class AgeCalc{
 
   inJupiterYrs() { //Takes a parameter containing the user's age in Earth-days, and returns their age in Jupiter-years. 
     //1 Solar Year on Jupiter = 4328.9 Earth-Days. 
+    console.log("this.currAge =  " + this.currAge);
     return Number((this.currAge/4328.9).toFixed(2));
   }
 
@@ -42,31 +45,40 @@ export default class AgeCalc{
   //Compares user's current age to what their demographic's average life expectancy would be on a given 'planet': Mercury, Venus, Mars or Jupiter (user's choice). This is based solely on the result of comparing two age calculations.   Then, tells user how long they have left to live OR, if their current age exceeds the calculated life expectancy, how far past the average they are [positive number].
   yearsLeftPlanet() {   // ***Subtract age from LifeEx in earth years, then convert that number to [planetName]-years for RLE on that planet. 
     //'Earth-years to [planetName]-years conversion' -- Divisor values
+    /*
     let earthToMcy = 87.6; 
     let earthToVns = 226.3; 
     let earthToMars = 686.2; 
     let earthToJpr = 4328.9; 
+    */ 
 
+    console.log(`this.earthLifeEx =  ${this.earthLifeEx}`);
+    console.log(`this.ageInYears =  ${this.ageInYrs}`);
     //Other variables
-    let userRLEOnEarth = this.earthLifeEx-this.ageInYears;  //Subtracts user's age from 'lifeEx' (both in Earth-years).  
+    let userRLEOnEarth = (this.earthLifeEx)-(this.ageInYrs);  //Subtracts user's age from 'lifeEx' (both in Earth-years).  
     let retval; //User's RLE on ['planetName'] in ['planetName']-years.   ('userRLEOnEarth' converted to ['planetName']-years). 
     let yearsPast;
-
+    console.log(`userRLEOnEarth =  ${userRLEOnEarth}`);
+    
     if(this.planet === "Mercury") {
-      retval = Number((userRLEOnEarth/earthToMcy).toFixed(2));  
+      retval = Number((userRLEOnEarth/0.24).toFixed(2));  
     } else if(this.planet === "Venus") { 
-      retval = Number((userRLEOnEarth/earthToVns).toFixed(2));  
+      retval = Number((userRLEOnEarth/0.62).toFixed(2));  
     } else if(this.planet === "Mars") {
-      retval = Number((userRLEOnEarth/earthToMars).toFixed(2));   
+      retval = Number((userRLEOnEarth/1.88).toFixed(2));   
     } else {
-      retval = Number((userRLEOnEarth/earthToJpr).toFixed(2)); 
+      retval = Number((userRLEOnEarth/11.86).toFixed(2)); 
     }
 
+
+    console.log(`Time left on ${this.planet} (in ${this.planet}-years), unrounded:  ${retval}`);
     if(retval >= 0) { 
+      //console.log(`[Retval Case 2 (${this.planet})]    'retval' =  ${Number(retval.toFixed(2))} ${this.planet}-years`);
       return Number(retval.toFixed(2));
     } else { //[Any tests that meet this condition should be expecting a string value]
       yearsPast = Number(Math.abs(retval).toFixed(2));  //Saves number of ['planetName']-years past the calculated RLE the user is. 
 
+      //console.log(`[Retval Case 1 (${this.planet})]     Returning the following:  Congrats! Your age indicates that so far, you've lived longer than the calculated RLE limit for your demographic on ${this.planet} by ${yearsPast} ${this.planet}-years!`); 
       return (`Congrats! Your age indicates that so far, you've lived longer than the calculated RLE for your demographic on ${this.planet} by   ${yearsPast} ${this.planet}-years!`); 
     }    
   }
