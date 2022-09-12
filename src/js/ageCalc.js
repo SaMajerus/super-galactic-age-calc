@@ -13,8 +13,8 @@ export default class AgeCalc{
     return((this.currDay-this.birthday)/86400000);  //1 Earth-Day = 86,400,000 milliseconds (ms) 
   }
   
-  yearsSince() {
-    return((this.currDay-this.birthday)/31540000000);  //1 Earth-Year = 31,540,000,000 milliseconds (ms) 
+  yearsSince() {  //Returns age in Earth-Years rounded to the nearest tenth
+    return(Number(((this.currDay-this.birthday)/31540000000).toFixed(1)));  //1 Earth-Year = 31,540,000,000 milliseconds (ms) 
   }
 
   inMercuryYrs() { //Takes a parameter containing the user's age in Earth-days, and returns their age in Mercury-years.  
@@ -50,27 +50,27 @@ export default class AgeCalc{
     //Other variables
     let userRLEOnEarth = this.earthLifeEx-this.ageInYears;  //Subtracts user's age from 'lifeEx' (both in Earth-years).  
     let retval; //User's RLE on ['planetName'] in ['planetName']-years.   ('userRLEOnEarth' converted to ['planetName']-years). 
+    let yearsPast;
 
-    if(planetName === "Mercury") {
+    if(this.planet === "Mercury") {
       retval = Number((userRLEOnEarth/earthToMcy).toFixed(2));  
-    } else if(planetName === "Venus") {
+    } else if(this.planet === "Venus") {
       retval = Number((userRLEOnEarth/earthToVns).toFixed(2));  
-    } else if(planetName === "Mars") {
+    } else if(this.planet === "Mars") {
       retval = Number((userRLEOnEarth/earthToMars).toFixed(2));   
     } else {
       retval = Number((userRLEOnEarth/earthToJpr).toFixed(2)); 
     }
-    
 
-    console.log(`Time left on ${planetName} (in ${planetName}-years), unrounded:  ${retval}`);
+    console.log(`Time left on ${this.planet} (in ${this.planet}-years), unrounded:  ${retval}`);
     if(retval >= 0) { 
-      console.log(`[Retval Case 2 (${planetName})]    'retval' =  ${Number(retval.toFixed(2))} ${planetName}-years`);
+      console.log(`[Retval Case 2 (${this.planet})]    'retval' =  ${Number(retval.toFixed(2))} ${this.planet}-years`);
       return Number(retval.toFixed(2));
     } else { //[Any tests that meet this condition should be expecting a string value]
       yearsPast = Number(Math.abs(retval).toFixed(2));  //Saves number of ['planetName']-years past the calculated RLE the user is. 
-      //console.log(`[Retval Case 1 (${planetName})]     Returning the following:  Congrats! Your age indicates that so far, you've lived longer than the calculated RLE limit for your demographic on ${planetName} by ${yearsPast} ${planetName}-years!`); 
-      return (`Congrats! Your age indicates that so far, you've lived longer than the calculated RLE for your demographic on ${planetName} by   ${yearsPast} ${planetName}-years!`); 
-    }
-    
+
+      //console.log(`[Retval Case 1 (${this.planet})]     Returning the following:  Congrats! Your age indicates that so far, you've lived longer than the calculated RLE limit for your demographic on ${this.planet} by ${yearsPast} ${this.planet}-years!`); 
+      return (`Congrats! Your age indicates that so far, you've lived longer than the calculated RLE for your demographic on ${this.planet} by   ${yearsPast} ${this.planet}-years!`); 
+    }    
   }
 }
