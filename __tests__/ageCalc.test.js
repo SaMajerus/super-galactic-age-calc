@@ -138,21 +138,18 @@ describe('yearsLeftPlanet', () => {
     userObj = new AgeCalc(d8Today, bday, lifeExp, "Mercury");
     let ageComp = userObj.yearsLeftPlanet(); 
     
-    console.log(`[# Years Left test  (last branching case, Mercury)] -- 'ageComp' = ${ageComp}`); 
     expect(typeof ageComp === Number); 
   });  
   test("It should determine how many years the User would have left in Venus-years", () => {  
     userObj = new AgeCalc(d8Today, bday, lifeExp, "Venus");
     let ageComp = userObj.yearsLeftPlanet();
     
-    console.log(`[# Years Left test  (last branching case, Venus)] -- 'ageComp' = ${ageComp}`); 
     expect(typeof ageComp === Number); 
   });  
   test("It should determine how many years the User would have left in Mars-years", () => {  
     userObj = new AgeCalc(d8Today, bday, lifeExp, "Mars");
     let ageComp = userObj.yearsLeftPlanet(); 
     
-    console.log(`[# Years Left test  (last branching case, Mars)] -- 'ageComp' = ${ageComp}`);  
     expect(typeof ageComp === Number); 
   });  
   test("It should determine how many years the User would have left in Jupiter-years", () => {  
@@ -161,7 +158,6 @@ describe('yearsLeftPlanet', () => {
     userObj = new AgeCalc(d8Today, bday, lifeExp, "Jupiter");
     let ageComp = userObj.yearsLeftPlanet();  
     
-    console.log(`[# Years Left test  (last branching case, Jupiter)] -- 'ageComp' = ${ageComp}`); 
     expect(typeof ageComp === Number); 
   });  
 }); 

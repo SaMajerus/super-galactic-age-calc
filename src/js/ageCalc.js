@@ -62,14 +62,11 @@ export default class AgeCalc{
       retval = Number((userRLEOnEarth/earthToJpr).toFixed(2)); 
     }
 
-    console.log(`Time left on ${this.planet} (in ${this.planet}-years), unrounded:  ${retval}`);
     if(retval >= 0) { 
-      console.log(`[Retval Case 2 (${this.planet})]    'retval' =  ${Number(retval.toFixed(2))} ${this.planet}-years`);
       return Number(retval.toFixed(2));
     } else { //[Any tests that meet this condition should be expecting a string value]
       yearsPast = Number(Math.abs(retval).toFixed(2));  //Saves number of ['planetName']-years past the calculated RLE the user is. 
 
-      //console.log(`[Retval Case 1 (${this.planet})]     Returning the following:  Congrats! Your age indicates that so far, you've lived longer than the calculated RLE limit for your demographic on ${this.planet} by ${yearsPast} ${this.planet}-years!`); 
       return (`Congrats! Your age indicates that so far, you've lived longer than the calculated RLE for your demographic on ${this.planet} by   ${yearsPast} ${this.planet}-years!`); 
     }    
   }
