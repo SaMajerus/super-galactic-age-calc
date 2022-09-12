@@ -25,8 +25,7 @@
 
 
 ## Description
-
-
+This part of the section [before the Sidenotes] will be completed once HTML functionality has been implemented. Until then, the brief description of the program (see above) should be sufficient. 
 
 
 Other Notes, Side-note(s) on Internet sources-- 
@@ -40,18 +39,33 @@ Other Notes, Side-note(s) on Internet sources--
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+* All that's required to run this application -- at minimum -- is: a decently-performing laptop, and a reliable Internet connection.
+* To Clone the program from the GitHub repo to your local machine:
+  * 1.) Click the green button labelled 'Code'. Under the 'HTTPS' tab, there are 3 Options. This program will only work at the moment if you choose Option 1, so move on to Step 2. 
 
+  * 2.)  If you selected Option 1: Copy the link. Then, in Git BASH, navigate to the folder you want to put the files in. This can be your Desktop directory, or a different subfolder, whatever you prefer. Next, still in the Git BASH console, type the following (with the copied-link in place of 'HTTPS') and hit ENTER:
+  'git clone HTTPS' Several lines of text will come up in the console -- that's the files being copied into whichever directory/folder you're in currently. Then, do the following once your prompt line reappears: While still in the console window, type 'pwd' and press ENTER. This will display your current file path. Copy that by highlighting it and pressing 'Ctrl-C', and then pasting it in an easily-accessible word processor like Notepad for reference.
+  Next, open File Explorer, and navigate to through your files according to that File Path you just copy-pasted for reference. Once you've done this, move on to Step 3. 
+  
+  * 3.) Before opening the HTML file, do the following: right-click the containing folder (in which the newly-copied files are stored) and select the option that says 'Pin to Quick Access'. This is to ensure that you can find this folder again in the steps that follow. 
+  Move on to Step 4. 
+
+  * 4.) Open VS Code.  Then, click on the page icon at the top of the left-hand toolbar. Then click 'Open Folder'.  When the Windows File Explorer window appears, navigate to and select the containing folder you pinned in the previous step. Once you've selected the folder and clicked the button to open the folder in VS Code, move on to Step 5. 
+
+  * 5.) Open a New Terminal (shortcut is Ctrl+Shift+`).  Then, in the command line, type 'npm install'. Everything needed to run the program with 'npm' will install -- your command prompt will show up again once the operation is complete; DO NOT Kill the terminal or close VS Code. 
+  Once this is complete, move onto the next Section. 
+
+* Running the program. 
+  * (This will only work if you've completed Step 5 of the previous Section.) 
+  Type 'npm run test'.  This will run the program's Jest tests. Your command prompt will appear at the bottom of the terminal once done. Preceding that will be a summary of the results from the Test Suite. 
+
+
+* Note:  The above instructions will be updated once the UI Logic and HTML page functionality has been implemented.
 
 
 ## Known Bugs
 
-* Currently there are no Jest tests for the cases in which a user's age in non-Earth-Years is greater than that of the calculated life expectancy on that planet. 
-* User input not available currently
+* User input via HTML not currently available. 
 
 
 
